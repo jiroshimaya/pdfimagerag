@@ -65,7 +65,7 @@ class PDFManager:
         return base64_images_by_page
 
     def doc2base64(self, documents: list[Document]) -> list[str]:
-        pages = [document.metadata["page"] for document in documents]
+        pages = [int(document.metadata["page"]) for document in documents]
         base64_images = [self.base64_images_by_page[page] for page in pages]
         return base64_images
 
